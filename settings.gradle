@@ -1,2 +1,7 @@
+include ':usecases'
+include ':remote_datasource'
+include ':local_datasource'
+include ':domain'
+include ':data'
 include ':app'
 rootProject.name = "Clean"
