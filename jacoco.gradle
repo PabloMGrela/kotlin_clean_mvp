@@ -1,0 +1,52 @@
+apply plugin: 'jacoco'
+
+tasks.withType(Test) {
+    jacoco.includeNoLocationClasses = true
+    jacoco.excludes = ['jdk.internal.*']
+}
+
+jacoco {
+    toolVersion = "0.8.5"
+    reportsDir = file("../build/reports/jacoco") // file for reports (xml, html)
+}
+
+ext {
+    coverageSourceDirs = 'src/test/java'
+}
+
+task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest']) {
+    group = "Reporting"
+    description = "Generate Jacoco coverage reports for Debug build"
+
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+
+    def fileFilter = [
+            '**/R.class',
+            '**/R$*.class',
+            '**/BuildConfig.*',
+            '**/Manifest*.*',
+            '**/*Test*.*',
+            'android/**/*.*',
+            '**/mainapp/**',
+            '**/*Activity*.*',
+            '**/*Fragment*.*',
+            '**/*View*.*',
+            '**/*Layout*.*',
+            '**/*Adapter*.*',
+            '**/*Api*.*',
+            '**/*Modules*.*'
+    ]
+
+    def debugTree = fileTree(dir: "${buildDir}/intermediates/classes/debug", excludes: fileFilter)
+    def mainSrc = "${project.projectDir}/src/main/java"
+
+    getClassDirectories().setFrom(files([debugTree]))
+    getSourceDirectories().setFrom(files([mainSrc]))
+    getExecutionData().setFrom(fileTree(dir: "$buildDir", includes: [
+            "jacoco/testDebugUnitTest.exec",
+            "outputs/code-coverage/connected/*coverage.ec"
+    ]))
+}
