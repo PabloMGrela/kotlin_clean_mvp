@@ -16,9 +16,6 @@ jobs:
         run: ./gradlew testDebugUnitTest
         continue-on-error: true # IMPORTANT: allow pipeline to continue to Android Test Report step
 
-      - name: Android Test Report
-        uses: asadmansr/android-test-report-action@v1.2.0
-
       - name: Android Emulator Runner
         uses: ReactiveCircus/android-emulator-runner@v2.9.0
         with:
