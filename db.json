@@ -1,65 +1,27 @@
 {
-  "id": 320,
   "name": "Denmark",
   "image_path": "https://cdn.sportmonks.com/images/countries/png/short/dk.png",
   "extra": {
     "continent": "Europe",
-    "sub_region": "Northern Europe",
-    "world_region": "EMEA",
     "fifa": "DEN",
-    "iso": "DNK",
-    "iso2": "DK",
     "longitude": "9.555907249450684",
-    "latitude": "56.10176086425781",
-    "flag": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"370\" height=\"280\"><path fill=\"#c60c30\" d=\"M0 0h370v280h-370z\"/><path fill=\"#fff\" d=\"M120 0h40v280h-40zM0 120h370v40h-370z\"/></svg>\n"
-  },
-  "continent": {
-    "data": {
-      "id": 1,
-      "name": "Europe"
-    }
+    "latitude": "56.10176086425781"
   },
   "leagues": {
     "data": [
       {
         "id": 271,
-        "active": true,
         "type": "domestic",
-        "legacy_id": 43,
-        "country_id": 320,
         "logo_path": "https://cdn.sportmonks.com/images/soccer/leagues/271.png",
         "name": "Superliga",
-        "is_cup": false,
-        "current_season_id": 16020,
-        "current_round_id": 169521,
-        "current_stage_id": 77443802,
-        "live_standings": true,
-        "coverage": {
-          "predictions": true,
-          "topscorer_goals": true,
-          "topscorer_assists": true,
-          "topscorer_cards": true
-        }
+        "is_cup": false
       },
       {
         "id": 1659,
-        "active": true,
         "type": "domestic",
-        "legacy_id": null,
-        "country_id": 320,
         "logo_path": "https://cdn.sportmonks.com/images//soccer/leagues/27/1659.png",
         "name": "Superliga Play-offs",
-        "is_cup": false,
-        "current_season_id": null,
-        "current_round_id": null,
-        "current_stage_id": null,
-        "live_standings": false,
-        "coverage": {
-          "predictions": true,
-          "topscorer_goals": true,
-          "topscorer_assists": true,
-          "topscorer_cards": true
-        }
+        "is_cup": false
       }
     ]
   }
