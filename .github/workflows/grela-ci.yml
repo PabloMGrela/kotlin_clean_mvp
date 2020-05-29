@@ -13,8 +13,13 @@ jobs:
           java-version: 1.8
 
       - name: Unit Test
-        run: ./gradlew testDebugUnitTest
+        run: ./gradlew jacocoTestReport
         continue-on-error: true # IMPORTANT: allow pipeline to continue to Android Test Report step
+
+      - name: Codecov
+        uses: codecov/codecov-action@v1.0.7
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Android Emulator Runner
         uses: ReactiveCircus/android-emulator-runner@v2.9.0
