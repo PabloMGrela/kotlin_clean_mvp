@@ -43,8 +43,39 @@ task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest']) {
     def debugTree = fileTree(dir: "${buildDir}/intermediates/classes/debug", excludes: fileFilter)
     def mainSrc = "${project.projectDir}/src/main/java"
 
-    getClassDirectories().setFrom(files([debugTree]))
-    getSourceDirectories().setFrom(files([mainSrc]))
+    def presentationKotlinClassTree = fileTree(dir: "../presentation/build/tmp/kotlin-classes/debug/", excludes: fileFilter)
+    def presentationSrc = "../presentation/src/main/java"
+
+    def domainKotlinClassTree = fileTree(dir: "../domain/build/classes/kotlin/", excludes: fileFilter)
+    def domainSrc = "../domain/src/main/java"
+
+    def dataKotlinClassTree = fileTree(dir: "../data/build/classes/kotlin/", excludes: fileFilter)
+    def dataSrc = "../data/src/main/java"
+
+    def localKotlinClassTree = fileTree(dir: "../local_datasource/build/tmp/kotlin-classes/debug/", excludes: fileFilter)
+    def localSrc = "../local-datasource/src/main/java"
+
+    def remoteKotlinClassTree = fileTree(dir: "../remote_datasource/build/tmp/kotlin-classes/debug/", excludes: fileFilter)
+    def remoteSrc = "../remote-datasource/src/main/java"
+
+    getClassDirectories().setFrom(files(
+            [debugTree],
+            [presentationKotlinClassTree],
+            [domainKotlinClassTree],
+            [dataKotlinClassTree],
+            [localKotlinClassTree],
+            [remoteKotlinClassTree]
+        )
+    )
+    getSourceDirectories().setFrom(files(
+            [mainSrc],
+            [presentationSrc],
+            [domainSrc],
+            [dataSrc],
+            [localSrc],
+            [remoteSrc]
+        )
+    )
     getExecutionData().setFrom(fileTree(dir: "$buildDir", includes: [
             "jacoco/testDebugUnitTest.exec",
             "outputs/code-coverage/connected/*coverage.ec"
