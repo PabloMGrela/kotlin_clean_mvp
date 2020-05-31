@@ -22,11 +22,9 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Android Emulator Runner
-        uses: ReactiveCircus/android-emulator-runner@v2.9.0
-        with:
-          api-level: 29
-          arch: x86
-          target: google_apis
-          profile: Nexus 6
-          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -sdcard
-          script: ./gradlew connectedCheck executeScreenshotTests
+        run: sudo mkdir /Users/runner/Library/Android/sdk/cmdline-tools
+          curl -fo commandlinetools.zip https://dl.google.com/android/repository/commandlinetools-mac-6514223_latest.zip
+          sudo unzip -q commandlinetools.zip -d /Users/runner/Library/Android/sdk/cmdline-tools & sudo rm -f commandlinetools.zip
+          sh -c \sdkmanager --install 'build-tools;29.0.3' platform-tools 'platforms;android-29' > /dev/null & sh -c \sdkmanager --install emulator > /dev/null
+          sh -c \sdkmanager --install 'system-images;android-29;google_apis;x86' > /dev/null
+          avdmanager create avd --force -n test --abi google_apis/x86 --package system-images;android-29;google_apis;x86 --device Nexus 6 --sdcard 100 & adb shell getprop sys.boot_completed
