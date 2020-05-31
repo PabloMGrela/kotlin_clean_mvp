@@ -1,8 +1,7 @@
-package com.grela.clean.presentation
+package com.grela.clean
 
-import com.grela.clean.BaseCallbackResult
-import com.grela.clean.domain.DomainGenerator.givenAGetCountryUseCase
-import com.grela.clean.domain.InvokerInstruments.givenAnInvoker
+import com.grela.clean.DomainGenerator.givenAGetCountryUseCase
+import com.grela.clean.InvokerInstruments.givenAnInvoker
 import com.grela.domain.model.CountryDomainEntity
 import com.grela.presentation.MainPresenter
 import com.grela.presentation.MainViewTranslator

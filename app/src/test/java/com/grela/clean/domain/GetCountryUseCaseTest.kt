@@ -1,7 +1,7 @@
 package com.grela.clean.domain
 
 import com.grela.clean.BaseUnitTest
-import com.grela.clean.domain.DomainGenerator.givenAGetCountryUseCase
+import com.grela.clean.DomainGenerator.givenAGetCountryUseCase
 import com.grela.domain.DataResult
 import kotlinx.coroutines.runBlocking
 import org.assertj.core.api.Assertions.assertThat

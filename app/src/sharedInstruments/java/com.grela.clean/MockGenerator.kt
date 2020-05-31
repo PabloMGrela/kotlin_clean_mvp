@@ -1,5 +1,6 @@
 package com.grela.clean
 
+import com.grela.clean.InstrumentationUtils.givenAMockFile
 import com.grela.remote_datasource.model.CountryRemoteEntity
 import com.grela.remote_datasource.model.ExtraInfoRemoteEntity
 import com.grela.remote_datasource.model.LeagueRemoteEntity
@@ -9,7 +10,7 @@ object MockGenerator {
 
     fun givenACountryRemoteEntity(): CountryRemoteEntity = CountryRemoteEntity(
         "countryName",
-        "mockImage",
+        givenAMockFile("flag.png"),
         ExtraInfoRemoteEntity(
             "continent",
             "fifa",

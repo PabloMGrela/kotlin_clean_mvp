@@ -14,7 +14,8 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.grela.clean.BaseUITestRunner"
+        testInstrumentationRunnerArguments clearPackageData: 'true'
     }
 
     buildTypes {
@@ -25,6 +26,15 @@ android {
 
         debug {
             testCoverageEnabled true
+        }
+    }
+
+    sourceSets {
+        androidTest {
+            java.srcDirs += "src/sharedInstruments/java"
+        }
+        test {
+            java.srcDirs += "src/sharedInstruments/java"
         }
     }
 
@@ -48,11 +58,16 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
-    
+
     testImplementation "com.squareup.okhttp3:mockwebserver:4.7.2"
     testImplementation "org.koin:koin-test:2.1.5"
     testImplementation 'org.assertj:assertj-core:3.16.1'
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestImplementation "org.koin:koin-test:2.1.5"
+    androidTestImplementation('com.schibsted.spain:barista:3.5.0') {
+        exclude group: 'com.android.support'
+        exclude group: 'org.jetbrains.kotlin'
+    }
 }

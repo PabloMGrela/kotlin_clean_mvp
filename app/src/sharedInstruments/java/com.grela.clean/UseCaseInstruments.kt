@@ -1,4 +1,4 @@
-package com.grela.clean.domain
+package com.grela.clean
 
 import com.grela.domain.DataResult
 import com.grela.domain.interactor.Callback

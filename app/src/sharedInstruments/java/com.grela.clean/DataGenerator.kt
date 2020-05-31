@@ -1,4 +1,4 @@
-package com.grela.clean.data
+package com.grela.clean
 
 import com.grela.clean.MockGenerator.createList
 import com.grela.clean.MockGenerator.givenACountryRemoteEntity

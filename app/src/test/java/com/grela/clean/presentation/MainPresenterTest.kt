@@ -1,7 +1,8 @@
 package com.grela.clean.presentation
 
 import com.grela.clean.BaseUnitTest
-import com.grela.clean.presentation.PresenterGenerator.givenAMainPresenter
+import com.grela.clean.PresenterGenerator
+import com.grela.clean.PresenterGenerator.givenAMainPresenter
 import com.grela.presentation.MainPresenter
 import org.junit.Assert.assertTrue
 import org.junit.Test

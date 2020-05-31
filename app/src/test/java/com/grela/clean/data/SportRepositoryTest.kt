@@ -1,7 +1,8 @@
 package com.grela.clean.data
 
 import com.grela.clean.BaseUnitTest
-import com.grela.clean.data.DataGenerator.givenASportRepository
+import com.grela.clean.DataGenerator
+import com.grela.clean.DataGenerator.givenASportRepository
 import com.grela.domain.DataResult
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
