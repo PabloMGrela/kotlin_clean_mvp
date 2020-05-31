@@ -21,11 +21,9 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
-      - name: Create sd card
-        run: mksdcard -l mySdCard 102M mySdCardFile.img
-
       - name: Android Emulator Runner
         uses: ReactiveCircus/android-emulator-runner@v2.9.0
+        run: mksdcard -l mySdCard 102M mySdCardFile.img
         with:
           api-level: 29
           arch: x86
