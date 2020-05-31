@@ -27,5 +27,5 @@ jobs:
           api-level: 25
           arch: x86
           target: google_apis
-          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -sdcard
+          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -sdcard 100
           script: ./gradlew connectedCheck executeScreenshotTests
