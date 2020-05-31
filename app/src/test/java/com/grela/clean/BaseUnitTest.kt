@@ -6,7 +6,7 @@ import org.koin.test.AutoCloseKoinTest
 
 open class BaseUnitTest : AutoCloseKoinTest() {
     @Before
-    fun setUp() {
+    open fun setUp() {
         startKoin {
            
         }

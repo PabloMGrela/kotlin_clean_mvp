@@ -1,0 +1,28 @@
+{
+  "name": "Denmark",
+  "image_path": "https://cdn.sportmonks.com/images/countries/png/short/dk.png",
+  "extra": {
+    "continent": "Europe",
+    "fifa": "DEN",
+    "longitude": "9.555907249450684",
+    "latitude": "56.10176086425781"
+  },
+  "leagues": {
+    "data": [
+      {
+        "id": 271,
+        "type": "domestic",
+        "logo_path": "https://cdn.sportmonks.com/images/soccer/leagues/271.png",
+        "name": "Superliga",
+        "is_cup": false
+      },
+      {
+        "id": 1659,
+        "type": "domestic",
+        "logo_path": "https://cdn.sportmonks.com/images//soccer/leagues/27/1659.png",
+        "name": "Superliga Play-offs",
+        "is_cup": false
+      }
+    ]
+  }
+}

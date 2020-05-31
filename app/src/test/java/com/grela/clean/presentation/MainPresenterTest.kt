@@ -8,7 +8,7 @@ import org.junit.Test
 
 class MainPresenterTest : BaseUnitTest() {
 
-    lateinit var presenter: MainPresenter
+    private lateinit var presenter: MainPresenter
     private val mainPresenterCallbackResult = PresenterGenerator.MainPresenterCallbackResult()
 
     @Test
