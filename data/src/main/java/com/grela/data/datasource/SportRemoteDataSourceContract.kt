@@ -4,5 +4,5 @@ import com.grela.data.model.CountryDataEntity
 import com.grela.domain.DataResult
 
 interface SportRemoteDataSourceContract {
-    fun getSport(): DataResult<Error, CountryDataEntity>
+    fun getSport(): DataResult<Error, List<CountryDataEntity>>
 }

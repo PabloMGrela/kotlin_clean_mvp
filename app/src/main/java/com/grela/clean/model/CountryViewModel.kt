@@ -12,3 +12,5 @@ data class CountryViewModel(
 )
 
 fun CountryDomainEntity.toCountryViewModel() = CountryViewModel(name, image, continent, LatLng(lat.toDouble(), lon.toDouble()), leagueWrapper.toLeagueViewModelList())
+
+fun List<CountryDomainEntity>.toCountryViewModelList() = map { it.toCountryViewModel() }

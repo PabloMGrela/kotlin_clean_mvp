@@ -23,7 +23,7 @@ object PresenterGenerator {
                 mainPresenterCallbackResult.putMethodCall(MainPresenterMethods.SHOW_ERROR)
             }
 
-            override fun showCountry(r: CountryDomainEntity) {
+            override fun showCountry(r: List<CountryDomainEntity>) {
                 mainPresenterCallbackResult.putMethodCall(MainPresenterMethods.SHOW_COUNTRY)
             }
         },

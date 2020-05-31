@@ -11,3 +11,5 @@ data class CountryRemoteEntity(
 )
 
 fun CountryRemoteEntity.toDataEntity() = CountryDataEntity(name, image, extraInfo.toExtraInfoDataEntity(), leagueWrapper.leagues.toLeagueDataEntityList())
+
+fun List<CountryRemoteEntity>.toDataEntityList() = map { it.toDataEntity() }

@@ -11,3 +11,5 @@ data class CountryDataEntity(
 
 fun CountryDataEntity.toCountryDomainEntity() =
     CountryDomainEntity(name, image, extraInfo.continent, extraInfo.fifa, extraInfo.lon, extraInfo.lat, leagues.toLeagueDomainEntityList())
+
+fun List<CountryDataEntity>.toCountryDomainEntityList() = map { it.toCountryDomainEntity() }

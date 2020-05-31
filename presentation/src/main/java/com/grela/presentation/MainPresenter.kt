@@ -27,5 +27,5 @@ class MainPresenter(
 
 interface MainViewTranslator {
     fun showError()
-    fun showCountry(r: CountryDomainEntity)
+    fun showCountry(r: List<CountryDomainEntity>)
 }

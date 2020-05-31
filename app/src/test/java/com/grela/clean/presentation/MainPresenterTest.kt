@@ -3,7 +3,7 @@ package com.grela.clean.presentation
 import com.grela.clean.BaseUnitTest
 import com.grela.clean.presentation.PresenterGenerator.givenAMainPresenter
 import com.grela.presentation.MainPresenter
-import junit.framework.Assert.assertTrue
+import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class MainPresenterTest : BaseUnitTest() {

@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.grela.clean.AppModules.injectActivity
-import com.grela.clean.model.toCountryViewModel
+import com.grela.clean.model.toCountryViewModelList
 import com.grela.domain.model.CountryDomainEntity
 import com.grela.presentation.MainPresenter
 import com.grela.presentation.MainViewTranslator
@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity(), MainViewTranslator {
         Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
     }
 
-    override fun showCountry(r: CountryDomainEntity) {
-        adapter.updateData(listOf(r.toCountryViewModel()))
+    override fun showCountry(r: List<CountryDomainEntity>) {
+        adapter.updateData(r.toCountryViewModelList())
     }
 }

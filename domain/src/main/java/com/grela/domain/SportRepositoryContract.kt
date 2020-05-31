@@ -4,5 +4,5 @@ import com.grela.domain.model.CountryDomainEntity
 
 interface SportRepositoryContract {
 
-    fun getCountry(): DataResult<Error, CountryDomainEntity>
+    fun getCountry(): DataResult<Error, List<CountryDomainEntity>>
 }

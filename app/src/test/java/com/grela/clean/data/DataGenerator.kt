@@ -1,5 +1,6 @@
 package com.grela.clean.data
 
+import com.grela.clean.MockGenerator.createList
 import com.grela.clean.MockGenerator.givenACountryRemoteEntity
 import com.grela.data.model.toCountryDomainEntity
 import com.grela.domain.DataResult
@@ -17,9 +18,9 @@ object DataGenerator {
     fun givenASportRepository(
         status: RepositoryStatus
     ) = object : SportRepositoryContract {
-        override fun getCountry(): DataResult<Error, CountryDomainEntity> {
+        override fun getCountry(): DataResult<Error, List<CountryDomainEntity>> {
             return when (status) {
-                RepositoryStatus.SUCCESS -> DataResult.Success(givenACountryRemoteEntity().toDataEntity().toCountryDomainEntity())
+                RepositoryStatus.SUCCESS -> DataResult.Success(createList(2) { givenACountryRemoteEntity().toDataEntity().toCountryDomainEntity() })
                 RepositoryStatus.ERROR -> DataResult.Error(Error())
             }
         }

@@ -10,7 +10,7 @@ class SportRemoteDataSourceImplementation : SportRemoteDataSourceContract, KoinC
 
     val api: SportApi by inject()
 
-    override fun getSport(): DataResult<Error, CountryDataEntity> {
+    override fun getSport(): DataResult<Error, List<CountryDataEntity>> {
         return safeCall { api.getData() }
     }
 }
