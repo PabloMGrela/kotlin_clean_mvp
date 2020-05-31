@@ -2,6 +2,7 @@ package com.grela.clean.main
 
 import androidx.test.rule.ActivityTestRule
 import com.grela.clean.BaseUITestRunner
+import com.grela.clean.InstrumentationUtils
 import com.grela.clean.MainActivity
 import com.grela.clean.MockGenerator.createList
 import com.grela.clean.MockGenerator.givenACountryRemoteEntity
@@ -31,7 +32,7 @@ class MainScreenScreenTest : BaseUITestRunner() {
     }
 
     private fun init(
-        countryList: List<CountryDataEntity> = createList(3) { givenACountryRemoteEntity().toDataEntity() }
+        countryList: List<CountryDataEntity> = createList(3) { givenACountryRemoteEntity(InstrumentationUtils.givenAMockFile("flag.png")).toDataEntity() }
     ) {
         this.countryList = countryList
         mainActivityRule.launchActivity(null)
