@@ -6,6 +6,7 @@ import com.grela.clean.MainActivity
 import com.grela.clean.MockGenerator.createList
 import com.grela.clean.MockGenerator.givenACountryRemoteEntity
 import com.grela.clean.RemoteGenerator
+import com.grela.clean.ScreenshotInstruments.takeScreenShot
 import com.grela.clean.main.MainScreenRobot.Companion.mainScreenRobot
 import com.grela.data.datasource.SportRemoteDataSourceContract
 import com.grela.data.model.CountryDataEntity
@@ -30,7 +31,7 @@ class MainScreenScreenTest : BaseUITestRunner() {
     }
 
     private fun init(
-        countryList: List<CountryDataEntity> = createList(3){ givenACountryRemoteEntity().toDataEntity()}
+        countryList: List<CountryDataEntity> = createList(3) { givenACountryRemoteEntity().toDataEntity() }
     ) {
         this.countryList = countryList
         mainActivityRule.launchActivity(null)
@@ -43,6 +44,12 @@ class MainScreenScreenTest : BaseUITestRunner() {
         mainScreenRobot {
             screenIsShown()
         }
+    }
+
+    @Test
+    fun given_a_country_list_screenshot_is_correct() {
+        init()
+        takeScreenShot(mainActivityRule, "Main activity")
     }
 
 }

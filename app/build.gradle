@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply from: "../jacoco.gradle"
+apply plugin: 'shot'
 
 android {
     compileSdkVersion 29
@@ -32,6 +33,9 @@ android {
     sourceSets {
         androidTest {
             java.srcDirs += "src/sharedInstruments/java"
+            manifest {
+                srcFile 'src/androidTest/AndroidManifest.xml'
+            }
         }
         test {
             java.srcDirs += "src/sharedInstruments/java"

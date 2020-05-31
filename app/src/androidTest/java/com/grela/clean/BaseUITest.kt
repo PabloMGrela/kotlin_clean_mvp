@@ -4,9 +4,9 @@ import android.app.Application
 import android.content.Context
 import androidx.lifecycle.LifecycleObserver
 import androidx.test.espresso.IdlingRegistry
-import androidx.test.runner.AndroidJUnitRunner
 import com.grela.domain.interactor.Invoker
 import com.grela.domain.interactor.UseCaseInvoker
+import com.karumi.shot.ShotTestRunner
 import org.junit.After
 import org.junit.Before
 import org.koin.android.ext.koin.androidContext
@@ -14,7 +14,7 @@ import org.koin.core.context.loadKoinModules
 import org.koin.core.context.startKoin
 import org.koin.dsl.module
 
-open class BaseUITestRunner : AndroidJUnitRunner() {
+open class BaseUITestRunner : ShotTestRunner() {
     private val counter = CounterIdleResource("Espresso")
 
     @Before
