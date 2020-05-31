@@ -21,6 +21,9 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
+      - name: Create sd card
+        run: mksdcard -l mySdCard 102M mySdCardFile.img
+
       - name: Android Emulator Runner
         uses: ReactiveCircus/android-emulator-runner@v2.9.0
         with:
@@ -28,5 +31,5 @@ jobs:
           arch: x86
           target: google_apis
           profile: Nexus 6
-          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim mksdcard -l mySdCard 1024M mySdCardFile.img
+          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -sdcard mySdCardFile.img
           script: ./gradlew connectedCheck executeScreenshotTests
