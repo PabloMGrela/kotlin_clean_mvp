@@ -3,6 +3,7 @@ package com.grela.remote_datasource
 import com.grela.data.datasource.SportRemoteDataSourceContract
 import com.grela.data.model.CountryDataEntity
 import com.grela.domain.DataResult
+import com.grela.remote_datasource.model.toDataEntityList
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
@@ -11,6 +12,6 @@ class SportRemoteDataSourceImplementation : SportRemoteDataSourceContract, KoinC
     val api: SportApi by inject()
 
     override fun getSport(): DataResult<Error, List<CountryDataEntity>> {
-        return safeCall { api.getData() }
+        return safeCall({ api.getData() }, { list -> list.toDataEntityList() })
     }
 }

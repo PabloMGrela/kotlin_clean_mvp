@@ -1,9 +1,7 @@
 package com.grela.remote_datasource
 
-import com.grela.data.model.CountryDataEntity
 import com.grela.domain.DataResult
 import com.grela.remote_datasource.model.CountryRemoteEntity
-import com.grela.remote_datasource.model.toDataEntityList
 import retrofit2.Call
 import retrofit2.http.GET
 import java.io.IOException
@@ -11,7 +9,7 @@ import java.io.IOException
 interface SportApi {
 
     companion object {
-        val baseUrl = "http://192.168.0.27:8989/"
+        val baseUrl = "http://192.168.1.33:8989/"
     }
 
     @GET("db")
@@ -19,15 +17,16 @@ interface SportApi {
 
 }
 
-inline fun safeCall(
-    block: () -> Call<List<CountryRemoteEntity>>
-): DataResult<Error, List<CountryDataEntity>> =
+inline fun <T, R> safeCall(
+    call: () -> Call<R>,
+    transform: (R) -> T
+): DataResult<Error, T> =
     try {
-        val result = block()
+        val result = call()
         val response = result.execute()
         if (response.isSuccessful) {
             response.body()?.let {
-                DataResult.Success(it.toDataEntityList())
+                DataResult.Success(transform(it))
             } ?: DataResult.Error(Error())
         } else {
             DataResult.Error(Error())
